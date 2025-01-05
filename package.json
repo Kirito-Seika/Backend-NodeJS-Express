@@ -1,0 +1,26 @@
+{
+  "name": "backend-nodejs-express",
+  "version": "1.0.0",
+  "description": "Nodejs(Express) with Kirito Nguyễn",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kirito-Seika/Backend-NodeJS-Express.git"
+  },
+  "keywords": [
+    "NodeJS(Express)"
+  ],
+  "author": "Kirito Nguyễn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kirito-Seika/Backend-NodeJS-Express/issues"
+  },
+  "homepage": "https://github.com/Kirito-Seika/Backend-NodeJS-Express#readme",
+  "dependencies": {
+    "express": "4.21.2"
+  }
+}
