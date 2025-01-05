@@ -19,7 +19,7 @@ app.use('/', webRoutes);
     try {
         await connection();
         app.listen(port, hostname, () => {
-            console.log(`Backend zero app listening on port ${port}`);
+            console.log(`Server running at http://${hostname}:${port}/`);
         });
     } catch (error) {
         console.log("Error connection: ", error);

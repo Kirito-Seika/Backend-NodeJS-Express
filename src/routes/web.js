@@ -9,8 +9,8 @@ router.get('/', HomePage);
 router.get('/user', UserPage);
 router.get('/user/create', CreatePage);
 router.post('/user/create-user', CreateUser);
-router.get('/update/:id', UpdatePage);
-router.post('/update-user', UpdateUser);
+router.get('/user/update/:id', UpdatePage);
+router.post('/user/update-user', UpdateUser);
 router.post('/delete-user', DeleteUser);
 router.post('/delete-user/:id', DeletePage)
 
