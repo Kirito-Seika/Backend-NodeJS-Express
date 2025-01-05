@@ -45,4 +45,12 @@ const updateProject = async (data) => {
     }
 }
 
-module.exports = {getAllProject, createProject, updateProject}
+const deleteProject = async (id) => {
+    try {
+        return await Project.deleteById(id);
+    } catch (err) {
+        return null;
+    }
+}
+
+module.exports = {getAllProject, createProject, updateProject, deleteProject}
