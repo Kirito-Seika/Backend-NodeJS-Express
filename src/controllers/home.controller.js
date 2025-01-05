@@ -34,13 +34,13 @@ const UpdateUser = async (req, res) => {
 
 const DeletePage = async (req, res) => {
     const userID = req.params.id;
-    let user = await getUserById(userID);
+    let user = await User.findById(userID).exec();
     res.render('delete', {userDelete: user});
 }
 const DeleteUser = async (req, res) => {
     const {userId} = req.body;
     await deleteUserById(userId);
-    res.redirect('/');
+    res.redirect('/user');
 }
 
 module.exports = {HomePage, UserPage, CreatePage, CreateUser, UpdatePage, UpdateUser, DeletePage, DeleteUser};

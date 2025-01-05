@@ -31,7 +31,7 @@
                 <td><%= user.city %></td>
                 <td class="action-user">
                     <a href="/user/update/<%= user.id %>">Edit</a>
-                    <form action="/delete-user/<%= user.id %>" method="post">
+                    <form action="/user/delete-user/<%= user.id %>" method="post">
                         <button>Delete</button>
                     </form>
                 </td>
