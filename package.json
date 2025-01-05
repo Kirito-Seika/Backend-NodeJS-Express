@@ -2,10 +2,10 @@
   "name": "backend-nodejs-express",
   "version": "1.0.0",
   "description": "Nodejs(Express) with Kirito Nguyễn",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node main.js"
+    "dev": "node src/main.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Kirito-Seika/Backend-NodeJS-Express#readme",
   "dependencies": {
+    "ejs": "3.1.10",
     "express": "4.21.2"
   }
 }
