@@ -1,12 +1,7 @@
 const express = require("express");
+const {HomePage} = require("../controllers/home.controller");
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-router.get('/kirito', (req, res) => {
-    res.render('sample');
-});
+router.get('/', HomePage);
 
 module.exports = router;

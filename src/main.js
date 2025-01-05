@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const ViewEngineConfig = require("./config/view-engine");
+const ViewEngineConfig = require("./config/view.engine");
 const webRoutes = require("./routes/web");
 
 const app = express();
