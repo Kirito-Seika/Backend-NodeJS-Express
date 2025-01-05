@@ -3,8 +3,8 @@
 ### I. Thông tin về dự án
 
 1. Về dự án:
-    - Dự án khởi đầu cho hành trình phát triển backend.
-    - Công nghệ sử dụng: NodeJS(ExpressJS)
+    - Dự án khởi đầu cho hành trình phát triển backend của tôi.
+    - Công nghệ sử dụng: HTML/CSS/EJS + NodeJS(ExpressJS).
 
 2. Môi trường NodeJS
     - Môi trường chạy dự án là NodeJS version 20.14.0.
