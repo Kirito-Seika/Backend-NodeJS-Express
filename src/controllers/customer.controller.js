@@ -3,6 +3,7 @@ const {
     getAllCustomer, createCustomer, createArrayCustomer,
     updateCustomer, deleteCustomer, deleteArrayCustomer
 } = require("../services/customer.service");
+const Joi = require('joi');
 
 const GetCustomersAPI = async (req, res) => {
     let {limit, page, name} = req.query;
@@ -20,19 +21,35 @@ const GetCustomersAPI = async (req, res) => {
 
 const CreateCustomersAPI = async (req, res) => {
     let {name, address, phone, email, description} = req.body;
-    let imageURL = '';
-    if (!req.files || Object.keys(req.files).length === 0) {
-        //do nothing
+    const schema = Joi.object({
+        name: Joi.string()
+            .alphanum()
+            .min(3)
+            .max(30)
+            .required(),
+        address: Joi.string(),
+        phone: Joi.string().pattern(new RegExp('^[0-9]{8,11}$')),
+        email: Joi.string().email(),
+        description: Joi.string(),
+    })
+    const {error} = schema.validate(req.body);
+    if (error) {
+        //return error
     } else {
-        let result = await uploadSingleFile(req.files.image);
-        imageURL = result.path;
+        let imageURL = '';
+        if (!req.files || Object.keys(req.files).length === 0) {
+            //do nothing
+        } else {
+            let result = await uploadSingleFile(req.files.image);
+            imageURL = result.path;
+        }
+        let customerData = {name, address, phone, email, description, image: imageURL};
+        let customer = await createCustomer(customerData);
+        return res.status(200).json({
+            errorCode: 0,
+            data: customer,
+        });
     }
-    let customerData = {name, address, phone, email, description, image: imageURL};
-    let customer = await createCustomer(customerData);
-    return res.status(200).json({
-        errorCode: 0,
-        data: customer,
-    });
 }
 const CreateManyCustomersAPI = async (req, res) => {
     let {customers} = req.body;
