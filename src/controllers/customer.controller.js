@@ -1,5 +1,13 @@
 const {uploadSingleFile} = require("../services/file.service");
-const {createCustomer,createArrayCustomer} = require("../services/customer.service");
+const {getAllCustomer,createCustomer,createArrayCustomer} = require("../services/customer.service");
+
+const GetCustomersAPI = async (req, res) => {
+    let result = await getAllCustomer();
+    return res.status(200).json({
+        errorCode: 0,
+        data: result,
+    });
+}
 
 const CreateCustomersAPI = async (req, res) => {
     let {name, address, phone, email, description} = req.body;
@@ -33,4 +41,4 @@ const CreateManyCustomersAPI = async (req, res) => {
     }
 }
 
-module.exports = {CreateCustomersAPI, CreateManyCustomersAPI};
+module.exports = {GetCustomersAPI, CreateCustomersAPI, CreateManyCustomersAPI};

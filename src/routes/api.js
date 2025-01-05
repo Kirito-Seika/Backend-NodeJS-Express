@@ -1,10 +1,10 @@
 const express = require('express');
 const {
     getUsersAPI, CreateUsersAPI, UpdateUsersAPI,
-    DeleteUsersAPI,UploadSingleFileAPI, UploadMultipleFilesAPI
+    DeleteUsersAPI, UploadSingleFileAPI, UploadMultipleFilesAPI
 } = require('../controllers/api.controller');
 const routerAPI = express.Router();
-const {CreateCustomersAPI,CreateManyCustomersAPI} = require('../controllers/customer.controller');
+const {CreateCustomersAPI, CreateManyCustomersAPI, GetCustomersAPI} = require('../controllers/customer.controller');
 
 //user
 routerAPI.get('/', (req, res) => {
@@ -28,5 +28,6 @@ routerAPI.post('/files', UploadMultipleFilesAPI);
 //customer
 routerAPI.post('/customers', CreateCustomersAPI);
 routerAPI.post('/many-customers', CreateManyCustomersAPI);
+routerAPI.get('/customers', GetCustomersAPI);
 
 module.exports = routerAPI;
