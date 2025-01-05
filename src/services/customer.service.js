@@ -48,4 +48,12 @@ const updateCustomer = async (customerData) => {
     }
 }
 
-module.exports = {getAllCustomer, createCustomer, createArrayCustomer, updateCustomer}
+const deleteCustomer = async (id) => {
+    try {
+        return await Customer.deleteById(id);
+    } catch (err) {
+        return null;
+    }
+}
+
+module.exports = {getAllCustomer, createCustomer, createArrayCustomer, updateCustomer, deleteCustomer}
