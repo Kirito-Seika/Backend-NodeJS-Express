@@ -25,4 +25,8 @@ const CreateUser = async (req, res) => {
     res.send('Create User Successfully');
 }
 
-module.exports = {HomePage, UserPage, CreatePage, CreateUser};
+const UpdatePage = (req, res) => {
+    res.render('update');
+}
+
+module.exports = {HomePage, UserPage, CreatePage, CreateUser, UpdatePage};
