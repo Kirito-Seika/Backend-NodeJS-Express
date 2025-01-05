@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Kirito-Seika/Backend-NodeJS-Express#readme",
   "dependencies": {
+    "api-query-params": "5.4.0",
     "dotenv": "16.4.7",
     "ejs": "3.1.10",
     "express": "4.21.2",
