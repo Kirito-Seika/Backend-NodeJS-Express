@@ -8,4 +8,9 @@ const UserPage = (req, res) => {
     return res.render('user');
 }
 
-module.exports = {HomePage, UserPage};
+const CreateUser = (req, res) => {
+    console.log("Check req: ", req.body);
+    res.send('create-user');
+}
+
+module.exports = {HomePage, UserPage, CreateUser};

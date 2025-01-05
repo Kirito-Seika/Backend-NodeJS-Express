@@ -1,10 +1,11 @@
 const express = require("express");
 const {
-    HomePage, UserPage
+    HomePage, UserPage,CreateUser
 } = require("../controllers/home.controller");
 const router = express.Router();
 
 router.get('/', HomePage);
-router.get('/userpage', UserPage);
+router.get('/user', UserPage);
+router.post('/create-user', CreateUser);
 
 module.exports = router;
