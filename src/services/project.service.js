@@ -25,8 +25,24 @@ const createProject = async (data) => {
             }
             return await myProject.save();
         }
+        if (data.type === "REMOVE-USERS") {
+            let myProject = await Project.findById(data.projectId).exec();
+            for (let i = 0; i < data.usersArr.length; i++) {
+                myProject.usersInfor.pull(data.usersArr[i]);
+            }
+            return await myProject.save();
+        }
     } catch (err) {
         return null;
     }
 }
-module.exports = {getAllProject, createProject}
+
+const updateProject = async (data) => {
+    try {
+        return await Project.updateOne({_id: data.id}, {...data});
+    } catch (err) {
+        return null;
+    }
+}
+
+module.exports = {getAllProject, createProject, updateProject}

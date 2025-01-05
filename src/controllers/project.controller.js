@@ -1,4 +1,4 @@
-const {createProject, getAllProject} = require('../services/project.service');
+const {createProject, getAllProject, updateProject} = require('../services/project.service');
 
 const GetProjectsAPI = async (req, res) => {
     let result = await getAllProject(req.query);
@@ -15,4 +15,14 @@ const CreateProjectsAPI = async (req, res) => {
     })
 }
 
-module.exports = {GetProjectsAPI, CreateProjectsAPI};
+const UpdateProjectsAPI = async (req, res) => {
+    let result = await updateProject(req.body);
+    return res.status(200).json(
+        {
+            errorCode: 0,
+            data: result
+        }
+    )
+}
+
+module.exports = {GetProjectsAPI, CreateProjectsAPI, UpdateProjectsAPI};
