@@ -14,7 +14,6 @@
     <a href="/create">Create User</a>
 </div>
 <div class="table-container">
-    <%= JSON.stringify(listUsers) %>
     <div class="title">List User</div>
     <table>
         <tr>
@@ -24,36 +23,20 @@
             <th>City</th>
             <th>Action</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Admin</td>
-            <td>admin@gmail.com</td>
-            <td>Hà Nội</td>
-            <td>
-                <button>Edit</button>
-                <button>Delete</button>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Neko</td>
-            <td>nekkochan2k@gmail.com</td>
-            <td>Hà Nội</td>
-            <td>
-                <button>Edit</button>
-                <button>Delete</button>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Edan</td>
-            <td>edan@gmail.com</td>
-            <td>Hà Nội</td>
-            <td>
-                <button>Edit</button>
-                <button>Delete</button>
-            </td>
-        </tr>
+        <% listUsers.forEach(function(user) { %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.city %></td>
+                <td class="action-user">
+                    <a href="/update/<%= user.id %>">Edit</a>
+                    <form action="/delete-user/<%= user.id %>" method="post">
+                        <button>Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% }); %>
     </table>
 </div>
 </body>
