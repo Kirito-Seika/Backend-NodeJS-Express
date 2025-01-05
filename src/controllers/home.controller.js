@@ -5,15 +5,7 @@ const HomePage = (req, res) => {
 }
 
 const UserPage = (req, res) => {
-    let user = [];
-    connection.query(
-        `SELECT * FROM users`,
-        function (err, results, fields) {
-            user = results;
-            console.log("Check result: ",results);
-            res.send(JSON.stringify(user));
-        }
-    )
+    return res.render('user');
 }
 
 module.exports = {HomePage, UserPage};
