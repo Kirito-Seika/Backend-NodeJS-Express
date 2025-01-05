@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const ViewEngineConfig = require("./config/view.engine");
 const webRoutes = require("./routes/web");
-const mySQL = require("mysql2");
+const connection = require("./config/database");
 
 const app = express();
 const port = process.env.PORT;
@@ -12,19 +12,10 @@ ViewEngineConfig(app);
 
 app.use('/',webRoutes);
 
-const connection = mySQL.createConnection({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-});
-
 connection.query(
     `SELECT * FROM users`,
     function (err, results,fields) {
         console.log("Check results",results);
-        console.log("Check fields", fields);
     }
 )
 
