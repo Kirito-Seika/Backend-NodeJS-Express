@@ -6,7 +6,7 @@ const HomePage = (req, res) => {
 }
 
 const UserPage = async (req, res) => {
-    let result = await getAllUsers();
+    let result = [];
     return res.render('user', {listUsers: result});
 }
 
@@ -16,7 +16,7 @@ const CreatePage = (req, res) => {
 
 const CreateUser = async (req, res) => {
     let {name, email, city} = req.body;
-    await createUser(email, name, city);
+    await createUser(name, email, city);
     res.send('Create User Successfully');
 }
 
